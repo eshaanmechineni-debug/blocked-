@@ -7,11 +7,18 @@ import App from './App.js';
 const html = htm.bind(React.createElement);
 const rootElement = document.getElementById('root');
 
-if (rootElement) {
-  const root = ReactDOM.createRoot(rootElement);
-  root.render(html`
-    <${React.StrictMode}>
-      <${App} />
-    <//>
-  `);
+if (!rootElement) {
+  console.error("Critical: Root element #root not found in the DOM.");
+} else {
+  try {
+    const root = ReactDOM.createRoot(rootElement);
+    root.render(html`
+      <${React.StrictMode}>
+        <${App} />
+      <//>
+    `);
+    console.log("Nexus Games initialized successfully.");
+  } catch (err) {
+    console.error("Failed to render the application:", err);
+  }
 }
