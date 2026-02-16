@@ -15,7 +15,7 @@ const Navbar = ({ onSearch, onLogoClick }) => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a1 1 0 01-1-1v-3a1 1 0 011-1h1a2 2 0 100-4H4a1 1 0 01-1-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
               </svg>
             </div>
-            <span className="text-xl font-extrabold tracking-tighter text-white uppercase">DOGGYBOY<span className="text-zinc-400">.COM</span></span>
+            <span className="text-xl font-extrabold tracking-tighter text-white uppercase">LILDOGGYBOY<span className="text-zinc-400">.ORG</span></span>
           </div>
 
           <div className="flex-1 max-w-md mx-8 hidden sm:block">

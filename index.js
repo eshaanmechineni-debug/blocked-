@@ -17,7 +17,7 @@ if (!rootElement) {
         <${App} />
       <//>
     `);
-    console.log("doggyboy.com initialized successfully.");
+    console.log("lildoggyboy.org initialized successfully.");
   } catch (err) {
     console.error("Failed to render the application:", err);
   }
