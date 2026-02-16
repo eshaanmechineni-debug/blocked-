@@ -1,3 +1,4 @@
+
 import { GameCategory } from './types.js';
 
 export const GAMES = [
@@ -11,28 +12,6 @@ export const GAMES = [
     tags: ['sports', 'retro', 'football', 'strategy'],
     source: 'GitHub',
     officialUrl: 'https://freegamesunblocked76.github.io/retro-bowl/'
-  },
-  {
-    id: 'basketball-stars',
-    title: 'Basketball Stars',
-    description: 'Basketball Stars is a 2-player basketball game where you can play as legendary stars. Pull off awesome dunks, hit 3-pointers, and block your opponents to win the tournament.',
-    thumbnail: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&q=80&w=800',
-    iframeUrl: 'https://games.poki.com/458768/basketballstars?tag=pg-308e3a23a92b7ed03bcc063e684b14b543dad40f&site_id=3&iso_lang=en&country=US&poki_url=https://poki.com/en/g/basketball-stars&hoist=yes&nonPersonalized=n&cloudsavegames=n&familyFriendly=n&categories=2,76,130,750,775,929,1103,1123,1139,1140,1168,1190,1193,1201&ab=b75eb4be1ad576dfa163125da6634a5008bd9310&experiment=c-97fce8de&special_condition=landing',
-    category: GameCategory.SPORTS,
-    tags: ['sports', 'basketball', '2-player', 'multiplayer'],
-    source: 'Poki',
-    officialUrl: 'https://poki.com/en/g/basketball-stars'
-  },
-  {
-    id: 'chrome-dino',
-    title: 'Chrome Dino',
-    description: 'The world-famous T-Rex runner. Dodge cacti and pterodactyls in this endless high-speed survival game. Simple controls, infinite challenge.',
-    thumbnail: 'https://images.unsplash.com/photo-1550745165-9bc0b252728f?auto=format&fit=crop&q=80&w=800',
-    iframeUrl: 'https://offline-dino-game.firebaseapp.com/',
-    category: GameCategory.ARCADE,
-    tags: ['classic', 'runner', 'google', 'minimal'],
-    source: 'Chromium',
-    officialUrl: 'https://chromium.googlesource.com/chromium/src/+/HEAD/components/neterror/resources/offline.js'
   },
   {
     id: 'chess',

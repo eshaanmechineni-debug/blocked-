@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import htm from 'htm';
 
@@ -5,6 +6,13 @@ const html = htm.bind(React.createElement);
 
 const GameViewer = ({ game, onBack }) => {
   const [isFullscreen, setIsFullscreen] = useState(false);
+
+  // Map of local game components
+  const localComponents = {
+    // Currently no local games
+  };
+
+  const GameComponent = game.isLocal ? localComponents[game.id] : null;
 
   return html`
     <div className=${`flex flex-col h-full bg-black rounded-2xl overflow-hidden shadow-2xl ${isFullscreen ? 'fixed inset-0 z-[100] rounded-none' : 'min-h-[85vh] border border-zinc-800'}`}>
@@ -25,25 +33,31 @@ const GameViewer = ({ game, onBack }) => {
           </div>
         </div>
         <div className="flex items-center space-x-2">
-          <a href=${game.officialUrl} target="_blank" className="hidden sm:flex items-center bg-zinc-900 hover:bg-zinc-800 text-zinc-300 px-3 py-2 rounded-lg text-sm transition-all border border-zinc-800">
-             <svg className="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-             Official Site
-          </a>
+          ${!game.isLocal && html`
+            <a href=${game.officialUrl} target="_blank" className="hidden sm:flex items-center bg-zinc-900 hover:bg-zinc-800 text-zinc-300 px-3 py-2 rounded-lg text-sm transition-all border border-zinc-800">
+               <svg className="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+               Official Site
+            </a>
+          `}
           <button onClick=${() => setIsFullscreen(!isFullscreen)} className="bg-white hover:bg-zinc-200 text-black px-4 py-2 rounded-lg text-sm font-bold shadow-lg transition-colors">
             ${isFullscreen ? 'Exit Fullscreen' : 'Fullscreen'}
           </button>
         </div>
       </div>
       <div className="flex-1 relative bg-black">
-        <iframe 
-          id=${game.iframeId || 'game-area'}
-          name=${game.iframeName || 'game-area'}
-          src=${game.iframeUrl} 
-          className="absolute inset-0 w-full h-full border-none" 
-          allowFullScreen 
-          allow="autoplay; encrypted-media; fullscreen; gamepad; pointer-lock; xr-spatial-tracking; clipboard-write; accelerometer; gyroscope"
-          sandbox="allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-scripts allow-same-origin allow-downloads"
-        />
+        ${game.isLocal && GameComponent ? html`
+          <${GameComponent} />
+        ` : html`
+          <iframe 
+            id=${game.iframeId || 'game-area'}
+            name=${game.iframeName || 'game-area'}
+            src=${game.iframeUrl} 
+            className="absolute inset-0 w-full h-full border-none" 
+            allowFullScreen 
+            allow="autoplay; encrypted-media; fullscreen; gamepad; pointer-lock; xr-spatial-tracking; clipboard-write; accelerometer; gyroscope"
+            sandbox="allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-scripts allow-same-origin allow-downloads"
+          />
+        `}
       </div>
       
       ${!isFullscreen && html`
@@ -58,7 +72,7 @@ const GameViewer = ({ game, onBack }) => {
                <div className="space-y-2">
                  <div className="flex justify-between text-xs">
                    <span className="text-zinc-500 font-medium">Platform</span>
-                   <span className="text-zinc-300">Web Browser</span>
+                   <span className="text-zinc-300">${game.isLocal ? 'Integrated HTML5' : 'Web Browser'}</span>
                  </div>
                  <div className="flex justify-between text-xs">
                    <span className="text-zinc-500 font-medium">Publisher</span>
@@ -66,7 +80,7 @@ const GameViewer = ({ game, onBack }) => {
                  </div>
                  <div className="flex justify-between text-xs">
                    <span className="text-zinc-500 font-medium">Controls</span>
-                   <span className="text-zinc-300">KBM / Gamepad</span>
+                   <span className="text-zinc-300">Keyboard / Touch</span>
                  </div>
                </div>
              </div>
