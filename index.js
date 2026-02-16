@@ -1,4 +1,3 @@
-
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import htm from 'htm';
@@ -17,7 +16,7 @@ if (!rootElement) {
         <${App} />
       <//>
     `);
-    console.log("Nexus Games initialized successfully.");
+    console.log("Interstellar Games initialized successfully.");
   } catch (err) {
     console.error("Failed to render the application:", err);
   }
