@@ -1,3 +1,4 @@
+
 import React, { useState, useMemo } from 'react';
 import htm from 'htm';
 import Navbar from './components/Navbar.js';
@@ -90,7 +91,7 @@ const App = () => {
 
       <footer className="bg-black border-t border-zinc-900 py-12 mt-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-zinc-600 text-sm">
-          <p>&copy; 2024 Interstellar Unblocked Games. Minimalist Gaming Excellence.</p>
+          <p>&copy; 2024 maindomain.allisons.org. Minimalist Gaming Excellence.</p>
         </div>
       </footer>
     </div>
