@@ -1,3 +1,4 @@
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import htm from 'htm';
@@ -16,7 +17,7 @@ if (!rootElement) {
         <${App} />
       <//>
     `);
-    console.log("Interstellar Games initialized successfully.");
+    console.log("doggyboy.com initialized successfully.");
   } catch (err) {
     console.error("Failed to render the application:", err);
   }

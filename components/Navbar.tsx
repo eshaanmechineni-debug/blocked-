@@ -21,7 +21,7 @@ const Navbar: React.FC<NavbarProps> = ({ onSearch, onLogoClick }) => {
               </svg>
             </div>
             <span className="text-xl font-extrabold tracking-tighter text-white uppercase">
-              ALLISONS<span className="text-indigo-400">.ORG</span>
+              DOGGYBOY<span className="text-indigo-400">.COM</span>
             </span>
           </div>
 
